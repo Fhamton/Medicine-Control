@@ -19,7 +19,7 @@ class Splash : AppCompatActivity() {
         if (!isFinishing)
         {
             // Cuando termina de correr abre el main
-            val intent = Intent(applicationContext, MainActivity::class.java)
+            val intent = Intent(applicationContext, Login::class.java)
             startActivity(intent)
             finish()
         }
