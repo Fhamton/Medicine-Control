@@ -1,0 +1,119 @@
+<application>
+  <component name="ActionsCollector">
+    <counts>
+      <entry action="$Copy" count="119" />
+      <entry action="$Cut" count="87" />
+      <entry action="$Delete" count="127" />
+      <entry action="$Paste" count="189" />
+      <entry action="$SelectAll" count="18" />
+      <entry action="$Undo" count="2587" />
+      <entry action="Android.AnalyzeApk" count="1" />
+      <entry action="Android.RunAndroidAvdManager" count="36" />
+      <entry action="Android.RunAndroidSdkManager" count="12" />
+      <entry action="Android.SyncProject" count="59" />
+      <entry action="AndroidConnectDebuggerAction" count="3" />
+      <entry action="ChangesView.Refresh" count="1" />
+      <entry action="ChangesView.Revert" count="1" />
+      <entry action="CheckinProject" count="15" />
+      <entry action="ChooseDebugConfiguration" count="2" />
+      <entry action="ChooseRunConfiguration" count="39" />
+      <entry action="CleanGradleProject" count="2" />
+      <entry action="CloseProject" count="18" />
+      <entry action="ConfigureKotlinInProject" count="1" />
+      <entry action="ConfigureKotlinJsInProject" count="1" />
+      <entry action="CopyPaths" count="3" />
+      <entry action="DeveloperServices.ConnectionAssistant" count="1" />
+      <entry action="DeveloperServices.Firebase" count="4" />
+      <entry action="DialogOkAction Intro" count="33" />
+      <entry action="EditSource" count="1" />
+      <entry action="EditorBackSpace" count="29963" />
+      <entry action="EditorChooseLookupItem" count="913" />
+      <entry action="EditorChooseLookupItemReplace" count="97" />
+      <entry action="EditorCopy" count="589" />
+      <entry action="EditorCut" count="98" />
+      <entry action="EditorDeleteLine" count="5" />
+      <entry action="EditorDeleteToWordStart" count="6" />
+      <entry action="EditorDown" count="19681" />
+      <entry action="EditorDownWithSelection" count="158" />
+      <entry action="EditorEnter" count="1449" />
+      <entry action="EditorIndentSelection" count="2" />
+      <entry action="EditorLeft" count="4247" />
+      <entry action="EditorLeftWithSelection" count="451" />
+      <entry action="EditorLineEnd" count="4" />
+      <entry action="EditorLineStart" count="15" />
+      <entry action="EditorNextWord" count="46" />
+      <entry action="EditorNextWordWithSelection" count="56" />
+      <entry action="EditorPageDown" count="2" />
+      <entry action="EditorPaste" count="1012" />
+      <entry action="EditorPasteSimple" count="1" />
+      <entry action="EditorPreviousWord" count="39" />
+      <entry action="EditorPreviousWordWithSelection" count="82" />
+      <entry action="EditorRight" count="8361" />
+      <entry action="EditorRightWithSelection" count="389" />
+      <entry action="EditorStartNewLine" count="2" />
+      <entry action="EditorTab" count="313" />
+      <entry action="EditorUnindentSelection" count="4" />
+      <entry action="EditorUp" count="16053" />
+      <entry action="EditorUpWithSelection" count="89" />
+      <entry action="Exit" count="1" />
+      <entry action="ExpandLiveTemplateByTab" count="1" />
+      <entry action="Find" count="2" />
+      <entry action="FindNext" count="3" />
+      <entry action="Git.Clone" count="1" />
+      <entry action="Git.Pull" count="1" />
+      <entry action="Github.Share" count="1" />
+      <entry action="GoogleLogin.LoginService" count="2" />
+      <entry action="GotoClass" count="1" />
+      <entry action="GotoDeclaration" count="10" />
+      <entry action="GotoFile" count="1" />
+      <entry action="Hg.Init" count="1" />
+      <entry action="HideAllWindows" count="104" />
+      <entry action="ImportProject" count="1" />
+      <entry action="Kotlin.NewFile" count="24" />
+      <entry action="Kotlin.NewScript" count="3" />
+      <entry action="KotlinConfigureUpdates" count="2" />
+      <entry action="KotlinConsoleREPL" count="1" />
+      <entry action="MakeGradleProject" count="1" />
+      <entry action="MakeModule" count="5" />
+      <entry action="MarkAsPlainTextAction" count="1" />
+      <entry action="NewAndroidImageAsset" count="12" />
+      <entry action="NewDir" count="1" />
+      <entry action="NewFile" count="1" />
+      <entry action="NewModule" count="1" />
+      <entry action="NewProject" count="2" />
+      <entry action="NewProjectFromVCS.Git" count="8" />
+      <entry action="NextTemplateVariable" count="4" />
+      <entry action="OpenFile" count="81" />
+      <entry action="OpenModuleSettings" count="1" />
+      <entry action="OptimizeImports" count="1" />
+      <entry action="OverrideMethods" count="2" />
+      <entry action="RebuildGradleProject" count="12" />
+      <entry action="RecentFiles" count="1" />
+      <entry action="RenameElement" count="26" />
+      <entry action="RevealIn" count="1" />
+      <entry action="Run" count="509" />
+      <entry action="RunClass" count="23" />
+      <entry action="SaveAll" count="97" />
+      <entry action="SearchEverywhere" count="5" />
+      <entry action="ShowErrorDescription" count="2" />
+      <entry action="ShowIntentionActions" count="60" />
+      <entry action="ShowSettings" count="12" />
+      <entry action="Stop" count="40" />
+      <entry action="Synchronize" count="1" />
+      <entry action="Terminal.OpenInTerminal" count="3" />
+      <entry action="ToggleLineBreakpoint" count="1" />
+      <entry action="Vcs.Checkout.Git" count="1" />
+      <entry action="Vcs.UpdateProject" count="3" />
+      <entry action="WelcomeScreen.RemoveSelected" count="1" />
+      <entry action="XDebugger.AttachToLocalProcess" count="1" />
+      <entry action="editRunConfigurations" count="4" />
+      <entry action="template.create.ActivityEmpty Activity" count="24" />
+    </counts>
+  </component>
+  <component name="FeatureUsageStatistics" first-run="1541883029489" have-been-shown="false" show-in-other="true" show-in-compilation="true">
+    <feature id="refactoring.moveTopLevel" count="0" last-shown="0" last-used="0" shown-count="0" />
+    <feature id="refactoring.introduceTypedef" count="0" last-shown="0" last-used="0" shown-count="0" />
+    <feature id="refactoring.rename" count="18" last-shown="0" last-used="1552182090825" shown-count="0" />
+    <feature id="refactoring.pushDown" count="0" last-shown="0" last-used="0" shown-count="0" />
+    <feature id="refactoring.inlineMacro" count="0" last-shown="0" last-used="0" shown-count="0" />
+    <fe

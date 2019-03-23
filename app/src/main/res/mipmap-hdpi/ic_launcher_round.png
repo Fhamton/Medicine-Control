@@ -1,0 +1,97 @@
+/*
+ * Copyright (C) 2017 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.android.build.gradle.internal.dsl;
+
+import com.android.annotations.NonNull;
+import com.android.build.gradle.internal.VariantManager;
+import com.android.builder.core.ErrorReporter;
+import com.android.builder.model.BaseConfig;
+import com.google.common.collect.ImmutableList;
+import java.util.List;
+import org.gradle.api.Project;
+import org.gradle.api.logging.Logger;
+import org.gradle.internal.reflect.Instantiator;
+
+/**
+ * Encapsulates all product flavors properties for this project.
+ *
+ * <p>Product flavors represent different versions of your project that you expect to co-exist on a
+ * single device, the Google Play store, or repository. For example, you can configure 'demo' and
+ * 'full' product flavors for your app, and each of those flavors can specify different features,
+ * device requirements, resources, and application ID's--while sharing common source code and
+ * resources. So, product flavors allow you to output different versions of your project by simply
+ * changing only the components and settings that are different between them.
+ *
+ * <p>Configuring product flavors is similar to <a
+ * href="https://developer.android.com/studio/build/build-variants.html#build-types">configuring
+ * build types</a>: add them to the <code>productFlavors</code> block of your module's <code>
+ * build.gradle</code> file and configure the settings you want. Product flavors support the same
+ * properties as the {@link com.android.build.gradle.BaseExtension#getDefaultConfig} block—this is
+ * because <code>defaultConfig</code> defines a {@link ProductFlavor} object that the plugin uses as
+ * the base configuration for all other flavors. Each flavor you configure can then override any of
+ * the default values in <code>defaultConfig</code>, such as the <a
+ * href="https://d.android.com/studio/build/application-id.html"><code>applicationId</code></a>.
+ *
+ * <p>When using Android plugin 3.0.0 and higher, <a
+ * href="com.android.build.gradle.internal.dsl.ProductFlavor.html#com.android.build.gradle.internal.dsl.ProductFlavor:dimension"><em>each
+ * flavor must belong to a <code>dimension</code></a></em>.
+ *
+ * <p>When you configure product flavors, the Android plugin automatically combines them with your
+ * {@link com.android.build.gradle.internal.dsl.BuildType} configurations to <a
+ * href="https://developer.android.com/studio/build/build-variants.html">create build variants</a>.
+ * If the plugin creates certain build variants that you don't want, you can <a
+ * href="https://developer.android.com/studio/build/build-variants.html#filter-variants">filter
+ * variants using <code>android.variantFilter</code></a>.
+ */
+public class ProductFlavor extends BaseFlavor {
+
+    public ProductFlavor(
+            @NonNull String name,
+            @NonNull Project project,
+            @NonNull Instantiator instantiator,
+            @NonNull Logger logger,
+            @NonNull ErrorReporter errorReporter) {
+        super(name, project, instantiator, logger, errorReporter);
+    }
+
+    private ImmutableList<String> matchingFallbacks;
+
+    public void setMatchingFallbacks(String... fallbacks) {
+        this.matchingFallbacks = ImmutableList.copyOf(fallbacks);
+    }
+
+    public void setMatchingFallbacks(String fallback) {
+        this.matchingFallbacks = ImmutableList.of(fallback);
+    }
+
+    public void setMatchingFallbacks(List<String> fallbacks) {
+        this.matchingFallbacks = ImmutableList.copyOf(fallbacks);
+    }
+
+    /**
+     * Specifies a sorted list of product flavors that the plugin should try to use when a direct
+     * variant match with a local module dependency is not possible.
+     *
+     * <p>Android plugin 3.0.0 and higher try to match each variant of your module with the same one
+     * from its dependencies. For example, when you build a "freeDebug" version of your app, the
+     * plugin tries to match it with "freeDebug" versions of the local library modules the app
+     * depends on.
+     *
+     * <p>However, there may be situations in which, for a given flavor dimension that exists in
+     * both the app and its library dependencies, <b>your app includes flavors that a dependency
+     * does not</b>. For example, consider if both your app and its library dependencies include a
+     * "tier" flavor dimension. Howe
