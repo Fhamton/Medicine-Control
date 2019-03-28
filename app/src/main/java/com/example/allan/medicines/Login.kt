@@ -9,12 +9,13 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.view.*
 
 class Login : AppCompatActivity() {
-    private lateinit var autenticacion : FirebaseAuth
-    private lateinit var usuariotxt : TextView
-    private lateinit var contraseñatxt : TextView
+    private lateinit var autenticacion: FirebaseAuth
+    private lateinit var usuariotxt: TextView
+    private lateinit var contraseñatxt: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +24,18 @@ class Login : AppCompatActivity() {
 
         var btnEntrar = findViewById<Button>(R.id.btnEntrar)
         btnEntrar.setOnClickListener {
-           logueo()
+            logueo()
+
+            var btnRegis = findViewById<Button>(R.id.btnRegis)
+            btnRegis.setOnClickListener {
+                Registrarse()
+
+
+                var textView = findViewById<TextView>(R.id.textView)
+                textView.setOnClickListener {
+                   Password()
+                }
+            }
         }
     }
 
@@ -46,7 +58,7 @@ class Login : AppCompatActivity() {
                 }
                 else
                 {
-                    Toast.makeText(this, "Datos Incorrectos", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Usuario Incorrecto", Toast.LENGTH_SHORT).show()
                 }
             }
         }
