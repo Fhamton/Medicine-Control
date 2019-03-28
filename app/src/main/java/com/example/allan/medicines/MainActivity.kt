@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var aplicacion : EditText
     lateinit var vencimiento: EditText
     lateinit var precio : EditText
+    val fechaing = Calendar.getInstance().time
 
     lateinit var btnguardar : Button
     lateinit var inventario : Button
@@ -29,9 +31,10 @@ class MainActivity : AppCompatActivity() {
         vencimiento  = findViewById(R.id.vencimiento)
         precio  = findViewById(R.id.precio)
 
-
+        Toast.makeText(this,fechaing.toString(),Toast.LENGTH_LONG).show()
         btnguardar   = findViewById(R.id.btn1)
         inventario   = findViewById(R.id.btn2)
+
 
         btnguardar.setOnClickListener {
             guardar()
@@ -68,7 +71,6 @@ class MainActivity : AppCompatActivity() {
             precio.error = "Ingrese el dato de forma correcta"
             return
         }
-
         val BDD = FirebaseDatabase.getInstance().getReference("Medicinas")
         val Id = BDD.push().key
         val medicinas = Medicine(Id!!,nombre,clas,ap,fecha,pre)
@@ -79,3 +81,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+

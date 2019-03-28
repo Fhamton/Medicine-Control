@@ -25,17 +25,11 @@ class Login : AppCompatActivity() {
         var btnEntrar = findViewById<Button>(R.id.btnEntrar)
         btnEntrar.setOnClickListener {
             logueo()
-
-            var btnRegis = findViewById<Button>(R.id.btnRegis)
-            btnRegis.setOnClickListener {
-                Registrarse()
-
-
-                var textView = findViewById<TextView>(R.id.textView)
-                textView.setOnClickListener {
-                   Password()
-                }
             }
+        var btnRegis = findViewById<Button>(R.id.btnRegis)
+            btnRegis.setOnClickListener {
+                val intent = Intent(this, Registrarse::class.java)
+                startActivity(intent)
         }
     }
 
