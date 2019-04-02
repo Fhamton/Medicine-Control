@@ -7,6 +7,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
+import java.time.Duration
+import java.time.LocalDate
+import java.time.temporal.ChronoUnit
+import java.time.chrono.ChronoLocalDate
+import java.time.chrono.ChronoPeriod
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -38,6 +44,8 @@ class MainActivity : AppCompatActivity() {
 
         btnguardar.setOnClickListener {
             guardar()
+          //  var difff = println((LocalDate.parse("28-3-2019")).until(LocalDate.parse("30-3-2019"), ChronoUnit.DAYS))
+           // Toast.makeText(this,"$difff",Toast.LENGTH_LONG).show()
         }
         inventario.setOnClickListener {
             val intent = Intent(this, Mostrar::class.java)
@@ -74,11 +82,18 @@ class MainActivity : AppCompatActivity() {
         val BDD = FirebaseDatabase.getInstance().getReference("Medicinas")
         val Id = BDD.push().key
         val medicinas = Medicine(Id!!,nombre,clas,ap,fecha,pre)
+
         if (Id != null) {
             BDD.child(Id).setValue(medicinas).addOnCompleteListener{
                 Toast.makeText(this,"Guardado Exitosamente",Toast.LENGTH_LONG).show()
             }
         }
+
+
+
+
+
+
     }
 }
 
