@@ -1,19 +1,18 @@
 package com.example.allan.medicines
 
 import android.content.Intent
+import android.icu.util.ULocale
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
-import java.time.Duration
 import java.time.LocalDate
-import java.time.temporal.ChronoUnit
-import java.time.chrono.ChronoLocalDate
-import java.time.chrono.ChronoPeriod
+import java.time.Year
 import java.time.format.DateTimeFormatter
 import java.util.*
+import java.util.Calendar.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,7 +21,15 @@ class MainActivity : AppCompatActivity() {
     lateinit var aplicacion : EditText
     lateinit var vencimiento: EditText
     lateinit var precio : EditText
-    val fechaing = Calendar.getInstance().time
+    lateinit var dia: EditText
+    lateinit var mes: EditText
+    lateinit var año: EditText
+
+    var calendar = GregorianCalendar(Locale.getDefault())
+    var diaSys = calendar.get(Calendar.DAY_OF_MONTH)
+    var mesSys = calendar.get(Calendar.MONTH) + 1
+    var añoSys = calendar.get(Calendar.YEAR)
+
 
     lateinit var btnguardar : Button
     lateinit var inventario : Button
@@ -34,18 +41,19 @@ class MainActivity : AppCompatActivity() {
         medicina    = findViewById(R.id.nombre)
         clase   = findViewById(R.id.clasificacion)
         aplicacion   = findViewById(R.id.aplicacion)
-        vencimiento  = findViewById(R.id.vencimiento)
+        vencimiento  = findViewById(R.id.dia)
         precio  = findViewById(R.id.precio)
+        dia = findViewById(R.id.dia)
+        mes = findViewById(R.id.mes)
+        año = findViewById(R.id.año)
 
-        Toast.makeText(this,fechaing.toString(),Toast.LENGTH_LONG).show()
+        Toast.makeText(this,"$diaSys/$mesSys/$añoSys",Toast.LENGTH_LONG).show()
         btnguardar   = findViewById(R.id.btn1)
         inventario   = findViewById(R.id.btn2)
 
 
         btnguardar.setOnClickListener {
-            guardar()
-          //  var difff = println((LocalDate.parse("28-3-2019")).until(LocalDate.parse("30-3-2019"), ChronoUnit.DAYS))
-           // Toast.makeText(this,"$difff",Toast.LENGTH_LONG).show()
+                guardar()
         }
         inventario.setOnClickListener {
             val intent = Intent(this, Mostrar::class.java)

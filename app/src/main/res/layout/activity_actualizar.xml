@@ -37,16 +37,6 @@
             android:layout_marginTop="25dp" app:layout_constraintTop_toBottomOf="@+id/firstnameUpdate2"
             android:hint="Aplicacion"/>
     <EditText
-            android:id="@+id/firstnameUpdate4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="72dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="28dp" app:layout_constraintTop_toBottomOf="@+id/firstnameUpdate3"
-            android:hint="Vencimiento"/>
-    <EditText
             android:id="@+id/firstnameUpdate5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,6 +44,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/firstnameUpdate4"
-            android:hint="Precio"/>
+            android:hint="Precio" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/firstnameUpdate3" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.022"/>
 </android.support.constraint.ConstraintLayout>

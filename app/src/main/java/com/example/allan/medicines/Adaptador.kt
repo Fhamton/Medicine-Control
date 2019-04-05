@@ -41,7 +41,22 @@ class Adaptador(val contexto : Context, val layoutId:Int, val listaMedicinas:Lis
         }
 
         borrar.setOnClickListener {
-            borrarInfo(medicina)
+
+            val builder = AlertDialog.Builder(contexto)
+
+            builder.setTitle("")
+
+            builder.setMessage("¿Desea eliminar el medicamento?")
+
+            builder.setPositiveButton("Si"){dialog, which ->
+                Toast.makeText(contexto,"Eliminando medicamento.",Toast.LENGTH_SHORT).show()
+                borrarInfo(medicina)
+            }
+            builder.setNeutralButton("Cancelar"){_,_ ->
+            }
+
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
         }
 
         return view
@@ -57,18 +72,16 @@ class Adaptador(val contexto : Context, val layoutId:Int, val listaMedicinas:Lis
         val nombre = view.findViewById<TextView>(R.id.firstnameUpdate)
         val clas = view.findViewById<TextView>(R.id.firstnameUpdate2)
         val ap = view.findViewById<TextView>(R.id.firstnameUpdate3)
-        val fecha = view.findViewById<TextView>(R.id.firstnameUpdate4)
         val pre = view.findViewById<TextView>(R.id.firstnameUpdate5)
-
+        val fecha = medicina.fecha
         nombre.setText(medicina.nonbre)
         clas.setText(medicina.clas)
         ap.setText(medicina.ap)
-        fecha.setText(medicina.fecha)
         pre.setText(medicina.pre)
 
         builder.setView(view)
 
-        builder.setPositiveButton("Actualizar",object : DialogInterface.OnClickListener{
+        builder.setPositiveButton("Actualizado",object : DialogInterface.OnClickListener{
             override fun onClick(dialog: DialogInterface?, which: Int) {
 
                 val  BDD = FirebaseDatabase.getInstance().getReference("Medicinas")
@@ -76,7 +89,6 @@ class Adaptador(val contexto : Context, val layoutId:Int, val listaMedicinas:Lis
                 val nonb    = nombre.text.toString().trim()
                 val cla     = clas.text.toString().trim()
                 val apl     = ap.text.toString().trim()
-                val fech   = fecha.text.toString().trim()
                 val prec   = pre.text.toString().trim()
 
                 if (nonb.isEmpty()){
@@ -91,18 +103,14 @@ class Adaptador(val contexto : Context, val layoutId:Int, val listaMedicinas:Lis
                     ap.error = "Please enter your address"
                     return
                 }
-                if (fech.isEmpty()){
-                    fecha.error = "Please enter your department"
-                    return
-                }
                 if (prec.isEmpty()){
                     pre.error = "Please enter your department"
                     return
                 }
 
-                val medicina = Medicine(medicina.id,nonb,cla,apl,fech,prec)
+                val medicina = Medicine(medicina.id,nonb,cla,apl,fecha,prec)
                 BDD.child(medicina.id).setValue(medicina)
-                Toast.makeText(contexto,"Actualizar", Toast.LENGTH_LONG).show()
+                Toast.makeText(contexto,"Actualizado", Toast.LENGTH_LONG).show()
             }})
 
         builder.setNegativeButton("cancelar",object : DialogInterface.OnClickListener{
@@ -117,6 +125,6 @@ class Adaptador(val contexto : Context, val layoutId:Int, val listaMedicinas:Lis
     private fun borrarInfo(medicina:Medicine){
         val BDD = FirebaseDatabase.getInstance().getReference("Medicinas")
         BDD.child(medicina.id).removeValue()
-        Toast.makeText(contexto,"Eliminado", Toast.LENGTH_LONG).show()
+        Toast.makeText(contexto,"Medicamento eliminado", Toast.LENGTH_LONG).show()
     }
 }
